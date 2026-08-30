@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -151,5 +150,538 @@
             font-size: 38px;
             line-height: 1;
 
-            transform: rota
-Load More
+            transform: rotate(-20deg);
+
+            cursor: pointer;
+        }
+
+        .search-input {
+            flex: 1;
+
+            height: 100%;
+
+            border: none;
+            outline: none;
+
+            background: transparent;
+
+            padding: 0 12px;
+
+            font-size: 16px;
+        }
+
+        .search-camera {
+            width: 30px;
+            height: 30px;
+
+            border: 3px solid black;
+            border-radius: 5px;
+
+            background: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 17px;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           HERO / VIDEO IMAGE AREA
+        ========================= */
+
+        .hero-area {
+            width: 100%;
+            height: 460px;
+
+            background: black;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: none;
+        }
+
+
+        /* =========================
+           PRODUCTS AREA
+        ========================= */
+
+        .products-area {
+            min-height: 800px;
+
+            padding: 240px 4.8% 70px;
+
+            background: linear-gradient(
+                to bottom,
+                #d8d5e8,
+                #514398
+            );
+        }
+
+        .products {
+            width: 100%;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 5.5%;
+        }
+
+
+        /* =========================
+           PRODUCT CARD
+        ========================= */
+
+        .product-card {
+            width: 100%;
+
+            overflow: hidden;
+
+            border-radius: 52px;
+
+            background: white;
+        }
+
+
+        /* =========================
+           PRODUCT IMAGE
+        ========================= */
+
+        .product-image-area {
+            width: 100%;
+            height: 430px;
+
+            background: black;
+
+            overflow: hidden;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+
+        /* =========================
+           PRODUCT INFORMATION
+        ========================= */
+
+        .product-info {
+            height: 110px;
+
+            background: white;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 7px;
+        }
+
+        .product-price {
+            font-size: 28px;
+        }
+
+
+        /* =========================
+           BUY BUTTON
+        ========================= */
+
+        .buy-button {
+            background: black;
+            color: white;
+
+            border: none;
+
+            padding: 8px 14px;
+
+            border-radius: 8px;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 18px;
+
+            cursor: pointer;
+        }
+
+        .buy-button:hover {
+            transform: scale(1.05);
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 10px 3%;
+            }
+
+            .brand-logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .brand-name {
+                font-size: 17px;
+            }
+
+            .top-buttons {
+                gap: 3px;
+            }
+
+            .top-button {
+                min-width: 40px;
+                height: 30px;
+            }
+
+            .icon-button {
+                font-size: 18px;
+            }
+
+            .about-button {
+                font-size: 11px;
+            }
+
+            .signin-button {
+                font-size: 10px;
+                padding: 0 7px;
+            }
+
+            .search-area {
+                width: 94%;
+                margin-left: 0;
+            }
+
+            .hero-area {
+                height: 300px;
+            }
+
+            .products-area {
+                padding: 100px 3% 50px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .product-image-area {
+                height: 380px;
+            }
+
+            .product-card {
+                border-radius: 38px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <div class="top-bar">
+
+
+            <!-- LOGO + BRAND NAME -->
+
+            <div class="brand">
+
+                <img
+                    class="brand-logo"
+                    src="Grace Celestial colour Logo.png"
+                    alt="Grace Celestial Logo"
+                >
+
+                <div class="brand-name">
+                    WELCOME TO<br>
+                    THE GRACEFUL CELESTIAL
+                </div>
+
+            </div>
+
+
+            <!-- TOP RIGHT BUTTONS -->
+
+            <div class="top-buttons">
+
+                <!-- CART -->
+
+                <button
+                    class="top-button icon-button"
+                    title="Shopping Cart">
+                    🛒
+                </button>
+
+
+                <!-- HEART -->
+
+                <button
+                    class="top-button icon-button"
+                    title="Favorites">
+                    ♥
+                </button>
+
+
+                <!-- CHAT -->
+
+                <button
+                    class="top-button icon-button"
+                    title="Chat">
+                    💬
+                </button>
+
+
+                <!-- ABOUT -->
+
+                <button
+                    class="top-button about-button">
+                    About<br>Us
+                </button>
+
+
+                <!-- SIGN IN -->
+
+                <button
+                    id="signInButton"
+                    class="top-button signin-button">
+                    sign in
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             SEARCH
+        ========================== -->
+
+        <div class="search-area">
+
+            <span class="search-icon">
+                ⌕
+            </span>
+
+            <input
+                class="search-input"
+                type="text"
+                placeholder=""
+            >
+
+            <button
+                class="search-camera"
+                title="Image Search">
+                ○
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         HERO IMAGE / VIDEO
+    ========================== -->
+
+    <section class="hero-area">
+
+        <!--
+            ဒီနေရာမှာ မင်းရဲ့
+            Hero / Banner / Video ပုံထည့်နိုင်တယ်။
+
+            ဥပမာ:
+
+            <img
+                class="hero-image"
+                src="hero.png"
+                alt="Hero">
+        -->
+
+    </section>
+
+
+    <!-- =========================
+         PRODUCTS
+    ========================== -->
+
+    <main class="products-area">
+
+
+        <div class="products">
+
+
+            <!-- =====================
+                 PRODUCT 1
+            ====================== -->
+
+            <div class="product-card">
+
+                <div class="product-image-area">
+
+                    <!--
+                        ဒီနေရာမှာ Product 1
+                        ဓာတ်ပုံထည့်ပါ။
+
+                        ဥပမာ:
+
+                        <img
+                            class="product-image"
+                            src="product1.png"
+                            alt="Product 1">
+                    -->
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <div class="product-price">
+                        50,000 MMK
+                    </div>
+
+                    <button class="buy-button">
+                        BUY
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================
+                 PRODUCT 2
+            ====================== -->
+
+            <div class="product-card">
+
+                <div class="product-image-area">
+
+                    <!--
+                        ဒီနေရာမှာ Product 2
+                        ဓာတ်ပုံထည့်ပါ။
+
+                        ဥပမာ:
+
+                        <img
+                            class="product-image"
+                            src="product2.png"
+                            alt="Product 2">
+                    -->
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <div class="product-price">
+                        50,000 MMK
+                    </div>
+
+                    <button class="buy-button">
+                        BUY
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        const signInButton =
+            document.getElementById("signInButton");
+
+
+        let signedIn = false;
+
+
+        signInButton.addEventListener("click", function () {
+
+            signedIn = !signedIn;
+
+
+            if (signedIn) {
+
+                /*
+                    Sign in လုပ်ပြီးတဲ့အခါ
+                    "sign in" စာနေရာမှာ
+                    လူပုံပြောင်းမယ်
+                */
+
+                signInButton.innerHTML = "👤";
+
+                signInButton.classList.remove(
+                    "signin-button"
+                );
+
+                signInButton.classList.add(
+                    "user-button"
+                );
+
+            } else {
+
+                /*
+                    ပြန်နှိပ်ရင်
+                    Sign in ပြန်ဖြစ်မယ်
+                */
+
+                signInButton.innerHTML = "sign in";
+
+                signInButton.classList.remove(
+                    "user-button"
+                );
+
+                signInButton.classList.add(
+                    "signin-button"
+                );
+
+            }
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
