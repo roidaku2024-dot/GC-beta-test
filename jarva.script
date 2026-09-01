@@ -1,0 +1,101 @@
+// ============================================
+// The Graceful Celestial — JavaScript
+// ============================================
+
+// Auth state
+let isSignedIn = false;
+
+/**
+ * Toggle between signed-in and signed-out states
+ * Changes the auth button from "sign in" text to profile icon
+ */
+function toggleAuth() {
+    isSignedIn = !isSignedIn;
+    updateAuthUI();
+}
+
+/**
+ * Set auth state to signed in (profile icon)
+ */
+function setSignedIn() {
+    isSignedIn = true;
+    updateAuthUI();
+}
+
+/**
+ * Set auth state to signed out ("sign in" text)
+ */
+function setSignedOut() {
+    isSignedIn = false;
+    updateAuthUI();
+}
+
+/**
+ * Update the auth button appearance based on current state
+ * - Signed Out: shows "sign in" text (home1.png)
+ * - Signed In: shows user profile SVG icon (home2.png)
+ */
+function updateAuthUI() {
+    const authBtn = document.getElementById('authBtn');
+
+    if (isSignedIn) {
+        // Show Profile Icon
+        authBtn.innerHTML = `
+            <svg class="profile-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+        `;
+        authBtn.style.padding = '0 8px';
+        authBtn.title = 'Profile';
+    } else {
+        // Show "sign in" text
+        authBtn.innerHTML = '<span id="authText">sign in</span>';
+        authBtn.style.padding = '0 12px';
+        authBtn.title = 'Sign In';
+    }
+}
+
+/**
+ * Initialize buy button click handlers
+ */
+function initBuyButtons() {
+    const buyButtons = document.querySelectorAll('.buy-btn');
+    buyButtons.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+            console.log(`Product ${index + 1} added to cart`);
+            alert(`Product ${index + 1} added to cart!`);
+        });
+    });
+}
+
+/**
+ * Initialize search bar functionality
+ */
+function initSearch() {
+    const searchInput = document.querySelector('.search-bar input');
+    if (searchInput) {
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const query = searchInput.value.trim();
+                if (query) {
+                    console.log('Search query:', query);
+                }
+            }
+        });
+    }
+}
+
+/**
+ * Initialize all event listeners on DOM ready
+ */
+function init() {
+    initBuyButtons();
+    initSearch();
+}
+
+// Run initialization when DOM is fully loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}
